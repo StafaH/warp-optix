@@ -412,8 +412,7 @@ class ViewerBackend:
     def _ensure_initialized(self):
         if self._initialized:
             return
-        if not self._api.initialize():
-            raise RuntimeError("Failed to initialize the OptiX path tracer")
+        self._api.initialize()
 
         # Keep the neutral lighting defaults used by the reference path-tracing example.
         self._api.set_use_procedural_sky(True)

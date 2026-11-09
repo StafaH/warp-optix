@@ -289,8 +289,7 @@ def main():
         enable_set=not args.no_set,
         backface_culling=not args.no_backface_culling,
     )
-    if not api.initialize():
-        raise RuntimeError("Failed to initialize pathtracing API.")
+    api.initialize()
     # Match Newton's ViewerOptix display defaults.
     api.tonemap_exposure = args.exposure
     api.tonemap_contrast = args.contrast

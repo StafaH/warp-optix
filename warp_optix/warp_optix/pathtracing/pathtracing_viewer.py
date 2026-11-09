@@ -582,7 +582,6 @@ class Renderer:
             self._create_pipeline()
 
             logger.info("OptiX path tracing viewer build complete.")
-            return True
         except BaseException:
             self.close()
             raise
@@ -1232,9 +1231,7 @@ def main():
 
     viewer = Renderer(width=800, height=600)
 
-    if not viewer.build():
-        logger.error("Failed to build viewer.")
-        return 1
+    viewer.build()
 
     # Render a few frames
     logger.info("Rendering frames.")

@@ -94,8 +94,7 @@ def main():
         enable_cuda_graphs=not args.no_cuda_graphs,
         enable_set=not args.no_set,
     )
-    if not api.initialize():
-        raise RuntimeError("Failed to initialize pathtracing API.")
+    api.initialize()
     api.tonemap_exposure = 0.32
     api.tonemap_contrast = 1.08
     api.tonemap_saturation = 1.1

@@ -86,7 +86,7 @@ requires_gpu = pytest.mark.skipif(not wp.is_cuda_available(), reason="requires a
 
 def _cornell_api(**kwargs):
     api = PathTracer(enable_set=False, **kwargs)
-    assert api.initialize()
+    api.initialize()
     api.scene.create_cornell_box()
     api.build_scene()
     return api
@@ -228,7 +228,7 @@ def test_optix_gpu_frame_is_ordered_when_called_from_another_stream():
             enable_cuda_graphs=False,
         )
         try:
-            assert api.initialize()
+            api.initialize()
             api.scene.create_cornell_box()
             api.build_scene()
             with wp.ScopedStream(caller):

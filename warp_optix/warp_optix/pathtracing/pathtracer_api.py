@@ -281,12 +281,11 @@ class PathTracer:
                 raise RuntimeError("The path tracer is closed")
         return self._viewer._scene
 
-    def initialize(self) -> bool:
+    def initialize(self) -> None:
         """Build the renderer once; failures raise."""
         if not self._built:
             self._viewer.build()
             self._built = True
-        return True
 
     def is_running(self) -> bool:
         return self._running

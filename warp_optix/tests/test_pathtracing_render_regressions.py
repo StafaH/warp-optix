@@ -20,7 +20,7 @@ def _new_gpu_api(width=64, height=48):
         enable_set=False,
         backface_culling=False,
     )
-    assert api.initialize()
+    api.initialize()
     return api
 
 
